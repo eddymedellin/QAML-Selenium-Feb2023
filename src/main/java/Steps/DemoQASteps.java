@@ -1,8 +1,10 @@
 package Steps;
 
+import Pages.DemoQASelectMenuPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class DemoQASteps extends BaseSteps{
 
@@ -10,6 +12,9 @@ public class DemoQASteps extends BaseSteps{
 
         super(driver);
     }
+
+    DemoQASelectMenuPage demoQASelectMenuPage = new DemoQASelectMenuPage(webDriver);
+
     public void abrirPaginaDemoQA(){
         webDriver.get("https://demoqa.com/text-box/");
 
@@ -84,5 +89,29 @@ public class DemoQASteps extends BaseSteps{
     public void clickSubmit(){
         WebElement botonSubmit = webDriver.findElement(By.cssSelector("button[id='submit']"));
         botonSubmit.click();
+    }
+
+    public void navegarSelecMenuPage(){
+        webDriver.navigate().to("https://demoqa.com/select-menu");
+    }
+
+    public void seleccionarColorPorText(String color){
+        Select listaColores = new Select(demoQASelectMenuPage.getListaColores());
+        listaColores.selectByVisibleText(color);
+    }
+
+    public void seleccionarColorPorIndex(Integer index){
+        Select listaColores = new Select(demoQASelectMenuPage.getListaColores());
+        listaColores.selectByIndex(index);
+    }
+
+    public void seleccionarColorPorValue(String value){
+        Select listaColores = new Select(demoQASelectMenuPage.getListaColores());
+        listaColores.selectByValue(value);
+    }
+
+    public String getColorSeleccionado(){
+        Select listaColores = new Select(demoQASelectMenuPage.getListaColores());
+        return listaColores.getFirstSelectedOption().getText();
     }
 }
