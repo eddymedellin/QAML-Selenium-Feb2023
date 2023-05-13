@@ -64,4 +64,25 @@ public class DemoQATest extends BaseTest{
         //demoQASteps.clickSubmit();
         //demoQASteps.cerrarVentana();
     }
+
+    @Test
+    public void practica4_Select() {
+        demoQASteps.abrirPaginaDemoQA();
+        demoQASteps.navegarSelectMenuPage();
+        demoQASteps.imprimirOpcionesColoresDisponibles();
+        demoQASteps.imprimir("Imprimir atributo value");
+        demoQASteps.imprimirValoresOpcionesColoresDisponibles();
+        demoQASteps.seleccionarColorPorText("Yellow");
+        demoQASteps.imprimir(demoQASteps.getColorSeleccionado());
+        demoQASteps.finalizarWebDriver();
+    }
+
+    @Test
+    public void practica4_select_multiple() {
+        demoQASteps.abrirPaginaDemoQA();
+        demoQASteps.navegarSelectMenuPage();
+        demoQASteps.scrollHaciaListaCarros();
+        demoQASteps.imprimirOpcionesCarrosDisponibles();
+        demoQASteps.finalizarWebDriver();
+    }
 }
