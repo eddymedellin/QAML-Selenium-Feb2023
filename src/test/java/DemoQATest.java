@@ -87,8 +87,20 @@ public class DemoQATest extends BaseTest{
     public void practica4_Select_Value_Text(){
         demoQASteps.abrirPaginaDemoQA();
         demoQASteps.navegarSelecMenuPage();
+        demoQASteps.imprimirOpcionesColoresDisponibles();
+        demoQASteps.imprimir("Imprimir atributo value");
+        demoQASteps.imprimirValoresColoresDisponibles();
         demoQASteps.seleccionarColorPorText("Yellow");
         demoQASteps.imprimir(demoQASteps.getColorSeleccionado());
+        demoQASteps.finalizarWebDriver();
+    }
 
+    @Test
+    public void practica4_Select_Multiple(){
+        demoQASteps.abrirPaginaDemoQA();
+        demoQASteps.navegarSelecMenuPage();
+        demoQASteps.scrollHaciaListaCarros();
+        demoQASteps.imprimirOpcionesCarrosDisponibles();
+        demoQASteps.finalizarWebDriver();
     }
 }

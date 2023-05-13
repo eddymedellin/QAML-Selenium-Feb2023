@@ -18,4 +18,11 @@ public class DemoQASelectMenuPage extends BasePage{
         return setlistaColores();
     }
 
+    private WebElement setListaCarros(){
+        return webDriver.findElement(By.id("cars"));
+    }
+
+    public WebElement getListaCarros(){
+        return setListaCarros();
+    }
 }

@@ -4,7 +4,12 @@ import Pages.DemoQASelectMenuPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
+
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 public class DemoQASteps extends BaseSteps{
 
@@ -113,5 +118,37 @@ public class DemoQASteps extends BaseSteps{
     public String getColorSeleccionado(){
         Select listaColores = new Select(demoQASelectMenuPage.getListaColores());
         return listaColores.getFirstSelectedOption().getText();
+    }
+
+    public List<WebElement> getOpcionesColores(){
+        Select listaColores = new Select(demoQASelectMenuPage.getListaColores());
+        return listaColores.getOptions();
+    }
+
+    public void imprimirOpcionesColoresDisponibles(){
+        for (WebElement o: getOpcionesColores()) {
+            imprimir(o.getText());
+        }
+    }
+
+    public void imprimirValoresColoresDisponibles(){
+        for (WebElement o: getOpcionesColores()) {
+            imprimir(o.getAttribute("value"));
+        }
+    }
+
+    public void scrollHaciaListaCarros(){
+        new Actions(webDriver).moveToElement(demoQASelectMenuPage.getListaCarros()).perform();
+    }
+
+    public List<WebElement> getOpcionesCarros(){
+        Select listaCarros= new Select(demoQASelectMenuPage.getListaCarros());
+        return listaCarros.getOptions();
+    }
+
+    public void imprimirOpcionesCarrosDisponibles(){
+        for (WebElement o: getOpcionesCarros()) {
+            imprimir(o.getText());
+        }
     }
 }
