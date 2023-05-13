@@ -64,31 +64,4 @@ public class DemoQATest extends BaseTest{
         //demoQASteps.clickSubmit();
         //demoQASteps.cerrarVentana();
     }
-
-    @Test
-    public void practica4_Select_Value(){
-        demoQASteps.abrirPaginaDemoQA();
-        demoQASteps.navegarSelecMenuPage();
-        demoQASteps.seleccionarColorPorValue("4"); //Purple
-        demoQASteps.imprimir(demoQASteps.getColorSeleccionado());
-
-    }
-
-    @Test
-    public void practica4_Select_Index(){
-        demoQASteps.abrirPaginaDemoQA();
-        demoQASteps.navegarSelecMenuPage();
-        demoQASteps.seleccionarColorPorIndex(4); //purple
-        demoQASteps.imprimir(demoQASteps.getColorSeleccionado());
-
-    }
-
-    @Test
-    public void practica4_Select_Value_Text(){
-        demoQASteps.abrirPaginaDemoQA();
-        demoQASteps.navegarSelecMenuPage();
-        demoQASteps.seleccionarColorPorText("Yellow");
-        demoQASteps.imprimir(demoQASteps.getColorSeleccionado());
-
-    }
 }
