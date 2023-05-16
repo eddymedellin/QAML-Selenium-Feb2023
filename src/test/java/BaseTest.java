@@ -7,7 +7,8 @@ public class BaseTest {
     private WebDriver webDriver;
 
     public WebDriver getWebDriver() {
-        File ruta = new File("/Users/jxr20920/Downloads/geckodriver-2");
+        //File ruta = new File("/Users/jxr20920/Downloads/geckodriver-2");
+        File ruta = new File("/Users/abe/Documents/geckodriver-v0.33.0-macos-aarch64/geckodriver");
         System.setProperty("webdriver.gecko.driver", ruta.getPath());
         //System.setProperty("webdriver.chrome.driver", ruta.getPath());
         webDriver = new FirefoxDriver();
