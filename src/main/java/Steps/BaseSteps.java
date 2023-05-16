@@ -40,4 +40,8 @@ public class BaseSteps {
     public void scrollToElementJS(WebElement element) {
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", element);
     }
+
+    public void maximizarVentana() {
+        webDriver.manage().window().maximize();
+    }
 }
