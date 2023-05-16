@@ -42,17 +42,6 @@ public class DemoQATest extends BaseTest{
 //        demoQASteps.cerrarVentana();
 //    }
 
-    @Test
-    public void practica2(){
-    // 1. Abra https://demoqa.com/text-box/
-        demoQASteps.abrirPaginaDemoQA();
-
-    // Completa el formulario
-        demoQASteps.fillForm();
-
-    //Close driver
-        //demoQASteps.cerrarVentana();
-    }
 
     @Test
     public void practica_2(){
@@ -62,6 +51,25 @@ public class DemoQATest extends BaseTest{
         demoQASteps.enviarCurrentAddress("Calle 1, Colonia 2, 12345");
         demoQASteps.enviarPermanentAddress("Calle Permanente, Colonia Permanente, 67890");
         //demoQASteps.clickSubmit();
-        //demoQASteps.cerrarVentana();
+        demoQASteps.cerrarVentana();
+    }
+
+    @Test
+    public void practica4_Select(){
+        demoQASteps.abrirPaginaDemoQA();
+        demoQASteps.navegarSelectMenuPage();
+        demoQASteps.imprimirOpcionesColoresDisponibles();
+        demoQASteps.imprimirValoresOpcionescoloresDisponibles();
+        demoQASteps.seleccionarColorPorTexto("Yellow");
+        demoQASteps.imprimir("OpcionSeeleccionada: "+demoQASteps.getcolorSeleccionado());
+        demoQASteps.seleccionarColorPorValue("7");// Voilet
+        demoQASteps.imprimir("OpcionSeeleccionada: "+demoQASteps.getcolorSeleccionado());
+        demoQASteps.seleccionarColorPorIndex(9);//Magenta
+        demoQASteps.imprimir("OpcionSeeleccionada: "+demoQASteps.getcolorSeleccionado());
+        demoQASteps.scrollHaciaListaCarros();
+        demoQASteps.imprimirOpcionesCarrosDisponibles();
+        demoQASteps.cerrarVentana();
+
+
     }
 }

@@ -1,13 +1,20 @@
 package Steps;
 
+import Pages.DemoQASelectMenuPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+
+import javax.swing.*;
+import java.util.List;
 
 public class DemoQASteps extends BaseSteps{
 
-    public DemoQASteps(WebDriver driver) {
+    DemoQASelectMenuPage demoQaSelectMenuPage = new DemoQASelectMenuPage(webDriver);
 
+    public DemoQASteps(WebDriver driver) {
         super(driver);
     }
     public void abrirPaginaDemoQA(){
@@ -85,4 +92,61 @@ public class DemoQASteps extends BaseSteps{
         WebElement botonSubmit = webDriver.findElement(By.cssSelector("button[id='submit']"));
         botonSubmit.click();
     }
+
+    public void navegarSelectMenuPage(){
+        webDriver.navigate().to("https://demoqa.com/select-menu");
+    }
+
+    public String  getcolorSeleccionado(){
+        Select listacolores = new Select(demoQaSelectMenuPage.getListaColores());
+        return listacolores.getFirstSelectedOption().getText();
+    }
+
+    private List<WebElement> getopcionescolores(){
+        Select listaColores = new Select(demoQaSelectMenuPage.getListaColores());
+        return listaColores.getOptions();
+    }
+    public void imprimirOpcionesColoresDisponibles(){
+        for(WebElement elementColor:getopcionescolores()){
+            imprimir(elementColor.getText());
+        }
+    }
+
+    public void imprimirValoresOpcionescoloresDisponibles(){
+        for(WebElement elementColor:getopcionescolores()){
+            imprimir(elementColor.getAttribute("value"));
+        }
+    }
+    public void seleccionarColorPorTexto(String color){
+        Select listaColores = new Select(demoQaSelectMenuPage.getListaColores());
+        listaColores.selectByVisibleText(color);
+    }
+
+
+   public void seleccionarColorPorValue(String value){
+       Select listaColores = new Select(demoQaSelectMenuPage.getListaColores());
+        listaColores.selectByValue(value);
+    }
+
+    public void seleccionarColorPorIndex(Integer index){
+        Select listaColores = new Select(demoQaSelectMenuPage.getListaColores());
+        listaColores.selectByIndex(index);
+    }
+
+    public void scrollHaciaListaCarros(){
+        new Actions(webDriver).scrollToElement(demoQaSelectMenuPage.getListaCarros()).perform();
+    }
+
+    private List<WebElement> getopcionesCarros(){
+        Select listaCarros = new Select(demoQaSelectMenuPage.getListaCarros());
+        return listaCarros.getOptions();
+    }
+
+    public void imprimirOpcionesCarrosDisponibles(){
+        for(WebElement elementColor:getopcionesCarros()){
+            imprimir(elementColor.getText());
+        }
+    }
+
+
 }
