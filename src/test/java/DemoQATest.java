@@ -64,4 +64,35 @@ public class DemoQATest extends BaseTest{
         //demoQASteps.clickSubmit();
         //demoQASteps.cerrarVentana();
     }
+
+    @Test
+    public void practica4_Select(){
+        demoQASteps.abrirPaginaDemoQA();
+        demoQASteps.navegarSelectMenuPage();
+        demoQASteps.seleccionarColorPorText("Yellow"); //toeme q estar igual que en la página HTML
+        demoQASteps.imprimir(demoQASteps.getColorSeleccionado());
+
+        //imprimir todas las opciones con value
+        demoQASteps.imprimirValoresOpcionesColoresDisponibles();
+
+        //imprimir todas las opciones de colores, lo hace con for each
+        demoQASteps.imprimirOpcionesDisponibles();
+
+       //selección por index
+        demoQASteps.seleccionarColorPorIndex(1); //se va a seleccionar el color azul.
+        demoQASteps.imprimir(demoQASteps.getColorSeleccionado());
+
+        //selección por value
+        demoQASteps.seleccionarColorPorValue("3");
+        demoQASteps.imprimir(demoQASteps.getColorSeleccionado());
+
+    }
+
+    @Test
+    public void practica4_select_multiples(){
+        demoQASteps.abrirPaginaDemoQA();
+        demoQASteps.navegarSelectMenuPage();
+        demoQASteps.imprimirOpcionesCarrosDisponibles();
+        //demoQASteps.finalizarWebDriver();
+    }
 }
