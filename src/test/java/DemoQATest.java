@@ -67,9 +67,21 @@ public class DemoQATest extends BaseTest{
 
     @Test
     public void practica6ActionsTest() {
+        //Abre la pag de DemoQA la maximiza y navega a la pag de los ejemplos de Drag and Drop
         demoQASteps.abrirPaginaDemoQA();
+        demoQASteps.maximizarVentana();
         demoQASteps.abrirDroppablePage();
+
+        //Revisa el texto del elemento Droppable antes de dragguear el otro elemento
+        demoQASteps.checkTextOfDroppableElement("Drop here");
+
+        //Realiza el drag and drop
         demoQASteps.dragAndDrop();
+
+        //Revisa nuevamente el texto del elemento Droppable
+        demoQASteps.checkTextOfDroppableElement("Dropped!");
+
+        //Finaliza el test
         demoQASteps.finalizarWebDriver();
     }
 }

@@ -4,6 +4,7 @@ import Pages.DemoQADroppablePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 public class DemoQASteps extends BaseSteps{
 
@@ -95,9 +96,21 @@ public class DemoQASteps extends BaseSteps{
     }
 
     public void dragAndDrop() {
-        dragAndDropElement(
-                demoQADroppablePage.getDivDroppable(),
-                demoQADroppablePage.getDivDraggable()
-        );
+        dragAndDropElement(demoQADroppablePage.getDivDroppable(),demoQADroppablePage.getDivDraggable());
+    }
+
+    public String getTextElement(WebElement element){
+        String txtElement = element.getText();
+        imprimir("El texto actual del elemento es: " + txtElement);
+        return txtElement;
+    }
+
+    public void checkTextOfDroppableElement(String txtToCheck){
+        String txt = getTextElement(demoQADroppablePage.getDivDroppable());
+        verifyTextsEquals(txt,txtToCheck);
+    }
+
+    public void verifyTextsEquals(String txt1,String txt2){
+        Assert.assertEquals(txt1,txt2);
     }
 }
