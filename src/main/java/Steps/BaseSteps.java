@@ -1,5 +1,6 @@
 package Steps;
 
+import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -74,6 +75,7 @@ public class BaseSteps {
                 .dragAndDrop(drag, elementDrop)
                 .perform();
     }
+
     public boolean isCorrectlyDisplayedElement(WebElement element){
         if(element.isDisplayed()){
             return true;
