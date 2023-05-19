@@ -1,5 +1,6 @@
 package Steps;
 
+import Pages.DemoQADroppablePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,6 +11,9 @@ public class DemoQASteps extends BaseSteps{
 
         super(driver);
     }
+
+    DemoQADroppablePage demoQADroppablePage = new DemoQADroppablePage(webDriver);
+
     public void abrirPaginaDemoQA(){
         webDriver.get("https://demoqa.com/text-box/");
 
@@ -84,5 +88,16 @@ public class DemoQASteps extends BaseSteps{
     public void clickSubmit(){
         WebElement botonSubmit = webDriver.findElement(By.cssSelector("button[id='submit']"));
         botonSubmit.click();
+    }
+
+    public void abrirDroppablePage() {
+        webDriver.navigate().to("https://demoqa.com/droppable");
+    }
+
+    public void dragAndDrop() {
+        dragAndDropElement(
+                demoQADroppablePage.getDivDroppable(),
+                demoQADroppablePage.getDivDraggable()
+        );
     }
 }
