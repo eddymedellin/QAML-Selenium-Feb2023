@@ -4,6 +4,7 @@ import Pages.DemoQADroppablePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 public class DemoQASteps extends BaseSteps{
 
@@ -100,4 +101,10 @@ public class DemoQASteps extends BaseSteps{
                 demoQADroppablePage.getDivDraggable()
         );
     }
+
+    public void verifyDroppedText(){
+        Assert.assertEquals(demoQADroppablePage.DroppedText(),"Dropped!");
+        imprimir(demoQADroppablePage.DroppedText());
+    }
+
 }

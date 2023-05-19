@@ -70,6 +70,7 @@ public class DemoQATest extends BaseTest{
         demoQASteps.abrirPaginaDemoQA();
         demoQASteps.abrirDroppablePage();
         demoQASteps.dragAndDrop();
+        demoQASteps.verifyDroppedText();
         demoQASteps.finalizarWebDriver();
     }
 }

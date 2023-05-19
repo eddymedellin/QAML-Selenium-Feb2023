@@ -59,7 +59,8 @@ public class BaseSteps {
         int sizey = elementDroppable.getSize().height;
         int sizex = elementDroppable.getSize().width;
 
-        int coordx = x + sizex/2;
+        int coordx = x + sizex/2; //esto se pone asi porque quiero que el punto donde lo agarre sea el centro de la imagen
+        //y no una esquina
         int coordy = y + sizey/2;
 
         new Actions(webDriver)
@@ -70,7 +71,7 @@ public class BaseSteps {
     public void dragAndDropElement(WebElement elementDrop,
                                    WebElement drag) {
         new Actions(webDriver)
-                .dragAndDrop(drag, elementDrop)
+                .dragAndDrop(drag, elementDrop) //dropea un elemento encima de otro
                 .perform();
     }
 }

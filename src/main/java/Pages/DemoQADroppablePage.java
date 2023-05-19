@@ -17,6 +17,8 @@ public class DemoQADroppablePage extends BasePage {
         return webDriver.findElement(By.xpath("//div[@id='simpleDropContainer']/div[@id='droppable']"));
     }
 
+    public String DroppedText(){return  webDriver.findElement(By.xpath("//div[@id='simpleDropContainer']/div[@id='droppable']/child::p")).getText();}
+
     public WebElement getDivDraggable() {
         return setDivDraggable();
     }
