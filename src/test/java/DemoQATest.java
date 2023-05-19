@@ -64,4 +64,12 @@ public class DemoQATest extends BaseTest{
         //demoQASteps.clickSubmit();
         //demoQASteps.cerrarVentana();
     }
+
+    @Test
+    public void practica6ActionsTest() {
+        demoQASteps.abrirPaginaDemoQA();
+        demoQASteps.abrirDroppablePage();
+        demoQASteps.dragAndDrop();
+        demoQASteps.finalizarWebDriver();
+    }
 }
