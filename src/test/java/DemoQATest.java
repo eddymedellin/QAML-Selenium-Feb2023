@@ -53,7 +53,7 @@ public class DemoQATest extends BaseTest{
         demoQASteps.maximizarVentana();
     }
 
-    @Test
+    @Test(description = "Test para llenar formulario", groups = {"SmokeTest"})
     public void practica2(){
     // Completa el formulario
         demoQASteps.fillForm();
@@ -70,7 +70,7 @@ public class DemoQATest extends BaseTest{
         demoQASteps.enviarPermanentAddress("Calle Permanente, Colonia Permanente, 67890");
     }
 
-    @Test(description = "Test para arrastrar un div y soltarlo en otro div")
+    @Test(description = "Test para arrastrar un div y soltarlo en otro div", priority = 1)
     public void practica6ActionsTest() {
         demoQASteps.abrirDroppablePage();
         demoQASteps.dragAndDrop();
