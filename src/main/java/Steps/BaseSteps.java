@@ -40,7 +40,6 @@ public class BaseSteps {
 
 
     public void scrollToElementJS(WebElement element) {
-        //No es necesario maximizar la ventana
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", element);
     }
 
