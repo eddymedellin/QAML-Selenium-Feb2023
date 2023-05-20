@@ -1,6 +1,7 @@
 import Steps.DemoQASteps;
 import Steps.GoogleSteps;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -42,7 +43,7 @@ public class DemoQATest extends BaseTest{
 //        demoQASteps.cerrarVentana();
 //    }
 
-    @Test
+@Test
     public void practica2(){
     // 1. Abra https://demoqa.com/text-box/
         demoQASteps.abrirPaginaDemoQA();
@@ -54,7 +55,7 @@ public class DemoQATest extends BaseTest{
         //demoQASteps.cerrarVentana();
     }
 
-    @Test
+@Test
     public void practica_2(){
         demoQASteps.abrirPaginaDemoQA();
         demoQASteps.enviarFullName("Moises Lopez Garcia");
@@ -63,5 +64,30 @@ public class DemoQATest extends BaseTest{
         demoQASteps.enviarPermanentAddress("Calle Permanente, Colonia Permanente, 67890");
         //demoQASteps.clickSubmit();
         //demoQASteps.cerrarVentana();
+    }
+
+    @Test
+    public void practica6ActionDragDrop(){
+        demoQASteps.abrirPaginaDemoQA();
+        System.out.println("Practica Droppable metodo dragDrop");
+        demoQASteps.abrirDroppablePage();
+        demoQASteps.dragDrop();
+        String textoEsperado = "Dropped!";
+        String textoActual = demoQASteps.obtenerTextoCategoria();
+        demoQASteps.imprimir(textoActual);
+        Assert.assertEquals(textoActual, textoEsperado);
+        demoQASteps.finalizarWebDriver();
+    }
+    @Test
+    public void practica6ActionMouseCordenadas(){
+        demoQASteps.abrirPaginaDemoQA();
+        System.out.println("Practica Droppable metodo Mouse");
+        demoQASteps.abrirDroppablePage();
+        demoQASteps.moveCursor();
+        String textoEsperado = "Dropped!";
+        String textoActual = demoQASteps.obtenerTextoCategoria();
+        demoQASteps.imprimir(textoActual);
+        Assert.assertEquals(textoActual, textoEsperado);
+        demoQASteps.finalizarWebDriver();
     }
 }

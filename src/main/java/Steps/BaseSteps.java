@@ -5,6 +5,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import java.time.Duration;
+
 public class BaseSteps {
     public WebDriver webDriver;
 
@@ -56,19 +58,18 @@ public class BaseSteps {
                                            WebElement drag) {
         int y = elementDroppable.getLocation().y;
         int x = elementDroppable.getLocation().x;
-        int sizey = elementDroppable.getSize().height;
+        int sizey = elementDroppable.getSize().height;//Tamaño del elemento
         int sizex = elementDroppable.getSize().width;
-
-        int coordx = x + sizex/2;
-        int coordy = y + sizey/2;
+        int coordx = (x + sizex)/3;
+        int coordy = sizey/3;
 
         new Actions(webDriver)
                 .dragAndDropBy(drag, coordx, coordy)
+                .build()
                 .perform();
     }
 
-    public void dragAndDropElement(WebElement elementDrop,
-                                   WebElement drag) {
+    public void dragAndDropElement(WebElement elementDrop,WebElement drag) {
         new Actions(webDriver)
                 .dragAndDrop(drag, elementDrop)
                 .perform();

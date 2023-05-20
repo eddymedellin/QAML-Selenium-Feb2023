@@ -1,5 +1,6 @@
 package Steps;
 
+import Pages.DemoQADroppablePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,12 +8,12 @@ import org.openqa.selenium.WebElement;
 public class DemoQASteps extends BaseSteps{
 
     public DemoQASteps(WebDriver driver) {
-
         super(driver);
     }
+
+    DemoQADroppablePage demoQADroppablePage=new DemoQADroppablePage(webDriver); // Instancia
     public void abrirPaginaDemoQA(){
         webDriver.get("https://demoqa.com/text-box/");
-
         imprimir("Navegando en DemoQA");
     }
 //    public boolean checkFullNameEmailIsDisplayed(){
@@ -84,5 +85,22 @@ public class DemoQASteps extends BaseSteps{
     public void clickSubmit(){
         WebElement botonSubmit = webDriver.findElement(By.cssSelector("button[id='submit']"));
         botonSubmit.click();
+    }
+
+    public void abrirDroppablePage(){
+        webDriver.navigate().to("https://demoqa.com/droppable");
+    }
+
+    public void dragDrop(){
+        dragAndDropElement(demoQADroppablePage.getDivDroppable(),
+                demoQADroppablePage.getDivDraggable());
+    }
+
+    public void moveCursor(){
+        moveToElementClickDragDrop(demoQADroppablePage.getDivDroppable(),demoQADroppablePage.getDivDraggable());
+    }
+    public String obtenerTextoCategoria() {
+        WebElement contenidoTexto = webDriver.findElement(By.xpath("//div[@id='droppable']//p[text()='Dropped!']"));
+        return contenidoTexto.getText();
     }
 }
