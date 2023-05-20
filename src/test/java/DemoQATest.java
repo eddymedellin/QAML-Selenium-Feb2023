@@ -44,9 +44,10 @@ public class DemoQATest extends BaseTest{
 //        demoQASteps.cerrarVentana();
 //    }
     @BeforeTest(description = "Precondiciones para las pruebas de DemoQATest",
-    alwaysRum=true)
+    alwaysRun=true)
     public void beforeDemoQATest() {
-        demoQASteps().abrirP
+        demoQASteps.abrirDroppablePage();
+        demoQASteps.maximizarVentana();
     }
     @BeforeTest(description = "Precondiciones para las pruebas de DemoQATest",
     alwaysRun = true)

@@ -19,6 +19,7 @@ public class DemoQASteps extends BaseSteps{
     }
 
     DemoQADroppablePage demoQADroppablePage = new DemoQADroppablePage(webDriver);
+    DemoQASelectMenuPage demoQASelectMenuPage = new DemoQASelectMenuPage(webDriver);
 
     public void abrirPaginaDemoQA(){
         webDriver.get("https://demoqa.com/text-box/");
@@ -95,17 +96,6 @@ public class DemoQASteps extends BaseSteps{
         WebElement botonSubmit = webDriver.findElement(By.cssSelector("button[id='submit']"));
         botonSubmit.click();
     }
-
-
-    public void abrirDroppablePage() {
-        webDriver.navigate().to("https://demoqa.com/droppable");
-    }
-
-    public void dragAndDrop() {
-        dragAndDropElement(
-                demoQADroppablePage.getDivDroppable(),
-                demoQADroppablePage.getDivDraggable()
-        );}
 
     public void navegarSelectMenuPage(){
         webDriver.navigate().to("https://demoqa.com/select-menu");
