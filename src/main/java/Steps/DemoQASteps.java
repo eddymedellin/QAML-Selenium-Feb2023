@@ -1,6 +1,7 @@
 package Steps;
 
 import Pages.DemoQADroppablePage;
+import Pages.DemoQASelectMenuPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
-public class DemoQASteps extends BaseSteps{
+public class DemoQASteps extends BaseSteps {
 
     public DemoQASteps(WebDriver driver) {
 
@@ -18,6 +19,7 @@ public class DemoQASteps extends BaseSteps{
     }
 
     DemoQADroppablePage demoQADroppablePage = new DemoQADroppablePage(webDriver);
+    DemoQASelectMenuPage demoQASelectMenuPage = new DemoQASelectMenuPage(webDriver);
 
     public void abrirPaginaDemoQA(){
         webDriver.get("https://demoqa.com/text-box/");
@@ -141,10 +143,11 @@ public class DemoQASteps extends BaseSteps{
         Select listaCarros = new Select(demoQASelectMenuPage.getListaCarros());
         return listaCarros.getOptions();
     }
-    public void imprimirOpcionesCarrosDisponibles(){
-        for (WebElement o: getOpcionesCarros()) {
+    public void imprimirOpcionesCarrosDisponibles() {
+        for (WebElement o : getOpcionesCarros()) {
             imprimir(o.getText());
         }
+    }
 
     public void abrirDroppablePage() {
         webDriver.navigate().to("https://demoqa.com/droppable");
