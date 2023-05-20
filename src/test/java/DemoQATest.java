@@ -2,12 +2,29 @@ import Steps.DemoQASteps;
 import Steps.GoogleSteps;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class DemoQATest extends BaseTest{
     private WebDriver webDriver = getWebDriver();
     private DemoQASteps demoQASteps = new DemoQASteps(webDriver);
 
+    @BeforeTest(description = "Precondiciones para las pruebas de DemoQA",
+            alwaysRun = true)
+    public void beforeDemoQATests(){
+        demoQASteps.abrirPaginaDemoQA();
+        demoQASteps.maximizarVentana();
+        demoQASteps.imprimir("@BeforeTest");
+    }
+
+    @AfterTest(description = "Metodo para ejecutar despues de cualquier test",
+            alwaysRun = true)
+    public void afterDemoQATests(){
+
+        demoQASteps.imprimir("@AfterTest");
+        demoQASteps.cerrarVentana();
+    }
 //    @Test
 //    public void practica1() {
 //        //1.Abrir DemoQA
@@ -45,7 +62,6 @@ public class DemoQATest extends BaseTest{
     @Test
     public void practica2(){
     // 1. Abra https://demoqa.com/text-box/
-        demoQASteps.abrirPaginaDemoQA();
 
     // Completa el formulario
         demoQASteps.fillForm();
@@ -56,7 +72,6 @@ public class DemoQATest extends BaseTest{
 
     @Test
     public void practica_2(){
-        demoQASteps.abrirPaginaDemoQA();
         demoQASteps.enviarFullName("Moises Lopez Garcia");
         demoQASteps.enviarEmail("moylop1996@qamindlab.com");
         demoQASteps.enviarCurrentAddress("Calle 1, Colonia 2, 12345");
