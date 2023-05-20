@@ -43,7 +43,11 @@ public class DemoQATest extends BaseTest{
 //        //Close driver
 //        demoQASteps.cerrarVentana();
 //    }
-
+    @BeforeTest(description = "Precondiciones para las pruebas de DemoQATest",
+    alwaysRum=true)
+    public void beforeDemoQATest() {
+        demoQASteps().abrirP
+    }
     @BeforeTest(description = "Precondiciones para las pruebas de DemoQATest",
     alwaysRun = true)
     public void beforeDemoQATests() {
@@ -52,6 +56,7 @@ public class DemoQATest extends BaseTest{
         demoQASteps.abrirPaginaDemoQA();
         demoQASteps.maximizarVentana();
     }
+
 
     @Test
     public void practica2(){

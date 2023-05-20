@@ -9,7 +9,4 @@ public class BasePage {
     public BasePage(WebDriver _webDriver){
         this.webDriver = _webDriver;
 }
-    public BasePage(WebDriver webDriver) {
-        this.webDriver = webDriver;
-    }
 }

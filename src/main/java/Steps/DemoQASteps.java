@@ -1,6 +1,7 @@
 package Steps;
 
 import Pages.DemoQADroppablePage;
+import Pages.DemoQASelectMenuPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -94,6 +95,18 @@ public class DemoQASteps extends BaseSteps{
         WebElement botonSubmit = webDriver.findElement(By.cssSelector("button[id='submit']"));
         botonSubmit.click();
     }
+
+
+    public void abrirDroppablePage() {
+        webDriver.navigate().to("https://demoqa.com/droppable");
+    }
+
+    public void dragAndDrop() {
+        dragAndDropElement(
+                demoQADroppablePage.getDivDroppable(),
+                demoQADroppablePage.getDivDraggable()
+        );}
+
     public void navegarSelectMenuPage(){
         webDriver.navigate().to("https://demoqa.com/select-menu");
     }
@@ -141,10 +154,11 @@ public class DemoQASteps extends BaseSteps{
         Select listaCarros = new Select(demoQASelectMenuPage.getListaCarros());
         return listaCarros.getOptions();
     }
-    public void imprimirOpcionesCarrosDisponibles(){
-        for (WebElement o: getOpcionesCarros()) {
+    public void imprimirOpcionesCarrosDisponibles() {
+        for (WebElement o : getOpcionesCarros()) {
             imprimir(o.getText());
         }
+    }
 
     public void abrirDroppablePage() {
         webDriver.navigate().to("https://demoqa.com/droppable");
