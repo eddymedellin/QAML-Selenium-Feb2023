@@ -71,6 +71,33 @@ public class DemoQATest extends BaseTest{
     }
 
     @Test(description = "Test para arrastrar un div y soltarlo en otro div", priority = 1)
+    public void practica4_Select(){
+        demoQASteps.abrirPaginaDemoQA();
+        demoQASteps.navegarSelectMenuPage();
+        demoQASteps.imprimirOpcionesDisponibles();
+        demoQASteps.imprimir("Imprimir atributo value");
+        demoQASteps.imprimirValoresOpcionesDisponibles();
+        demoQASteps.seleccionarColorPorText("Yellow");
+        demoQASteps.imprimir(demoQASteps.getColorSeleccionado());
+
+        demoQASteps.seleccionarColorPorValue("2");
+        demoQASteps.imprimir(demoQASteps.getColorSeleccionado());
+
+        demoQASteps.seleccionarColorPorIndex(4);
+        demoQASteps.imprimir(demoQASteps.getColorSeleccionado());
+
+        demoQASteps.finalizarWebDriver();
+    }
+
+    @Test
+    public void practica4_select_multiple() {
+        demoQASteps.abrirPaginaDemoQA();
+        demoQASteps.navegarSelectMenuPage();
+        demoQASteps.scrollHaciaListaCarros();
+        demoQASteps.imprimirOpcionesCarrosDisponibles();
+    }
+
+    @Test(description = "Test para arrastrar un div y soltarlo en otro div")
     public void practica6ActionsTest() {
         demoQASteps.abrirDroppablePage();
         demoQASteps.dragAndDrop();

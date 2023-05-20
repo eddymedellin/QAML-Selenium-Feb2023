@@ -37,6 +37,7 @@ public class BaseSteps {
         System.out.println(cadenaAImprimir);
     }
 
+
     public void scrollToElementJS(WebElement element) {
         //No es necesario maximizar la ventana
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", element);
@@ -72,5 +73,12 @@ public class BaseSteps {
         new Actions(webDriver)
                 .dragAndDrop(drag, elementDrop)
                 .perform();
+    }
+    public boolean isCorrectlyDisplayedElement(WebElement element){
+        if(element.isDisplayed()){
+            return true;
+        }else {
+            return false;
+        }
     }
 }
