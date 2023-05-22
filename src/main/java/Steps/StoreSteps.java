@@ -19,13 +19,13 @@ public class StoreSteps extends BaseSteps{
         imprimir("Navegando en Store");
     }
     public boolean verifyIsPhonesCategory(){
-        WebElement phones = storePage.PhonesCategorie();
+        WebElement phones = storePage.phonesCategorie();
         imprimir("Phones Categorie is Displayed: " + phones.isDisplayed());
         return isCorrectlyDisplayedElement(phones);
     }
     public boolean verifyLaptopsCategory(){
         WebElement laptops = storePage.laptopsCategorie();
-        imprimir("Laptops Categorie is DIsplayed: " + laptops.isDisplayed());
+        imprimir("Laptops Categorie is Displayed: " + laptops.isDisplayed());
         return isCorrectlyDisplayedElement(laptops);
     }
     public boolean verifyIsMonitorsCategory(){
