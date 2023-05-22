@@ -3,6 +3,7 @@ import Pages.DemoQADroppablePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 
 import java.net.PortUnreachableException;
 
@@ -13,7 +14,10 @@ public class DemoQASteps extends BaseSteps{
         super(driver);
     }
 
-    DemoQADroppablePage demoQADroppablePage = new DemoQADroppablePage(webDriver);
+   // DemoQADroppablePage demoQADroppablePage = new DemoQADroppablePage(webDriver);
+    /////////////////usamos este en vez del anterior.
+    DemoQADroppablePage demoQADroppablePage = PageFactory.initElements(webDriver, DemoQADroppablePage.class);
+
     public void abrirPaginaDemoQA(){
         webDriver.get("https://demoqa.com/text-box/");
 
@@ -93,14 +97,25 @@ public class DemoQASteps extends BaseSteps{
         webDriver.navigate().to("https://demoqa.com/droppable");
     }
 
-    public void dragAndDrop() {
+   /* public void dragAndDrop() {
         dragAndDropElement(
                 demoQADroppablePage.getDivDroppable(),
                 demoQADroppablePage.getDivDraggable()
         );
 
     }
+
+    */
     public String droppedText(){
         return demoQADroppablePage.getPDropped().getText();
+    }
+
+
+
+    public void dragAndDrop() {
+        dragAndDropElement(
+                demoQADroppablePage.getDroppable(),
+                demoQADroppablePage.getDraggable()
+        );
     }
 }
