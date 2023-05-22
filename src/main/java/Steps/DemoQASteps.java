@@ -100,4 +100,9 @@ public class DemoQASteps extends BaseSteps{
                 demoQADroppablePage.getDivDraggable()
         );
     }
+
+    public String obtenerTexto(){
+        WebElement textoDropped = webDriver.findElement(By.xpath("//*[text()='Dropped!']"));
+        return textoDropped.getText();
+    }
 }
